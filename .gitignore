@@ -1,0 +1,33 @@
+# Environment files
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+.pytest_cache/
+
+# Node.js
+node_modules/
+dist/
+build/
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Kubernetes secrets
+kubernetes/secret.yaml
+
+# Helm
+charts/
+*.tgz
