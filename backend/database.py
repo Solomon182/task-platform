@@ -6,7 +6,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql://taskuser:taskpassword@localhost:5432/taskdb",
+    "postgresql://taskuser:taskpassword@postgres:5432/taskdb",
 )
 
 engine = create_engine(DATABASE_URL)
