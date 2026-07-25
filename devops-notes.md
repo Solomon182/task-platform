@@ -288,3 +288,8 @@ Running on Kubernetes using:
 
 These issues provided hands-on experience debugging real-world
 Kubernetes and container orchestration problems.
+
+
+Problem: Frontend loaded but /api/tasks returned 404.
+Cause: The application was opened through the frontend Service directly, bypassing the Ingress routing rules.
+Solution: Accessed the application through the Traefik Ingress hostname instead.

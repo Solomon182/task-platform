@@ -1,0 +1,64 @@
+namespace: task-platform
+
+backend:
+  image:
+    repository: task-platform-backend
+    tag: v2
+    pullPolicy: IfNotPresent
+
+  replicaCount: 2
+
+  service:
+    port: 8000
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+frontend:
+  image:
+    repository: task-platform-frontend
+    tag: v3
+    pullPolicy: IfNotPresent
+
+  replicaCount: 2
+
+  service:
+    port: 80
+
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+postgres:
+  image:
+    repository: postgres
+    tag: 16-alpine
+
+  database: taskdb
+  username: taskuser
+  password: taskpassword
+
+  storage:
+    size: 1Gi
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+ingress:
+  enabled: true
+  className: traefik
+  host: task-platform.local

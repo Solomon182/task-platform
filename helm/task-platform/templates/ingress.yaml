@@ -1,12 +1,14 @@
+{{- if .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: task-platform
-  namespace: task-platform
+  namespace: {{ .Values.namespace }}
 spec:
-  ingressClassName: traefik
+  ingressClassName: {{ .Values.ingress.className }}
+
   rules:
-    - host: task-platform.local
+    - host: {{ .Values.ingress.host }}
       http:
         paths:
           - path: /api
@@ -15,7 +17,7 @@ spec:
               service:
                 name: backend
                 port:
-                  number: 8000
+                  number: {{ .Values.backend.service.port }}
 
           - path: /metrics
             pathType: Exact
@@ -23,7 +25,7 @@ spec:
               service:
                 name: backend
                 port:
-                  number: 8000
+                  number: {{ .Values.backend.service.port }}
 
           - path: /
             pathType: Prefix
@@ -31,4 +33,5 @@ spec:
               service:
                 name: frontend
                 port:
-                  number: 80
+                  number: {{ .Values.frontend.service.port }}
+{{- end }}

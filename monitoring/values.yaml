@@ -1,0 +1,36 @@
+grafana:
+  enabled: true
+
+  adminPassword: task-platform-admin
+
+  service:
+    type: ClusterIP
+
+  persistence:
+    enabled: true
+    size: 1Gi
+
+prometheus:
+  enabled: true
+
+  prometheusSpec:
+    retention: 7d
+
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+
+alertmanager:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true
