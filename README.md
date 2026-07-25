@@ -303,7 +303,7 @@ DevOps Engineer | Kubernetes | Docker | CI/CD | OpenShift | Cloud Native
 GitHub:
 
 ```
-https://github.com/YOUR_USERNAME
+https://github.com/Solomon182
 ```
 
 ---
